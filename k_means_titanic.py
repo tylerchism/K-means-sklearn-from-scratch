@@ -44,7 +44,7 @@ def handle_non_numerical_date(df):
             return text_digit_vals[val]
 
         if df[column].dtype != np.int64 and df[column].dtype != np.float64:
-            column_contents = df[column].valuse.tolist()
+            column_contents = df[column].values.tolist()
             unique_elements = set(column_contents)
             x = 0
             for unique in unique_elements:
@@ -63,7 +63,7 @@ clf.fit(X)
 
 correct = 0
 for i in range(len(X)):
-    predict_ne = np.array(X[i].astype(float))
+    predict_me = np.array(X[i].astype(float))
     predict_me = predict_me.reshape(-1, len(predict_me))
     prediction = clf.predict(predict_me)
     if prediction[0] == y[i]:
